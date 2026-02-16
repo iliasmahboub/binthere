@@ -1,7 +1,7 @@
 # BinThere
 
 <p align="center">
-  <img src="./assets/binthere-logo.png" alt="BinThere logo" width="220" />
+  <img src="./binthere.png" alt="BinThere logo" width="220" />
 </p>
 
 BinThere is a Rust CLI that finds leftover installer files and helps you remove them safely.
@@ -167,7 +167,7 @@ Potential reclaimable: 1.87 GB
 ## Branding
 
 Logo path used by this README:
-- `assets/binthere-logo.png`
+- `binthere.png`
 
 ## Project Layout
 
