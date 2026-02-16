@@ -6,6 +6,8 @@ It scans folders (usually `Downloads`) for setup files like `.exe` and `.msi`, s
 
 ## Install
 
+If `cargo install binthere` or `npm i -g binthere-cli` is not available yet, use source install first.
+
 ### Option 1: Build from source
 
 ```bash
@@ -26,13 +28,13 @@ Windows PowerShell:
 .\target\release\binthere.exe --help
 ```
 
-### Option 2: Cargo install (when published)
+### Option 2: Cargo install
 
 ```bash
 cargo install binthere
 ```
 
-### Option 3: npm global install (when published)
+### Option 3: npm global install
 
 ```bash
 npm i -g binthere-cli
@@ -69,6 +71,9 @@ Show found files and summary from the latest saved scan.
 binthere report
 ```
 
+Note:
+- Run `binthere scan` first so there is saved scan data to report.
+
 ### `purge`
 
 Display or delete files found in the latest scan.
@@ -81,6 +86,9 @@ binthere purge --confirm
 Options:
 - `--dry-run` explicit dry-run output (safe preview)
 - `--confirm` actually delete files after interactive confirmation
+
+Note:
+- Run `binthere scan` first so there is saved scan data to purge.
 
 ## Safety
 

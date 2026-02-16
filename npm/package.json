@@ -21,7 +21,7 @@
     "tar": "^7.4.3"
   },
   "binthereBinary": {
-    "repo": "REPLACE_WITH_GITHUB_OWNER/REPLACE_WITH_REPO",
+    "repo": "iliasmahboub/binthere",
     "tagPrefix": "v"
   }
 }
