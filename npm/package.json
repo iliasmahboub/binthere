@@ -1,0 +1,27 @@
+{
+  "name": "binthere-cli",
+  "version": "0.1.0",
+  "description": "BinThere CLI binary installer",
+  "license": "MIT",
+  "bin": {
+    "binthere": "bin/binthere.js"
+  },
+  "scripts": {
+    "postinstall": "node install.js"
+  },
+  "files": [
+    "bin",
+    "install.js"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.16",
+    "tar": "^7.4.3"
+  },
+  "binthereBinary": {
+    "repo": "REPLACE_WITH_GITHUB_OWNER/REPLACE_WITH_REPO",
+    "tagPrefix": "v"
+  }
+}
