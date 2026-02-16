@@ -6,7 +6,12 @@ It scans folders (usually `Downloads`) for setup files like `.exe` and `.msi`, s
 
 ## Install
 
-If `cargo install binthere` or `npm i -g binthere-cli` is not available yet, use source install first.
+Recommended for users:
+
+```bash
+npm i -g binthere-cli
+binthere --help
+```
 
 ### Option 1: Build from source
 
@@ -26,19 +31,6 @@ Windows PowerShell:
 
 ```powershell
 .\target\release\binthere.exe --help
-```
-
-### Option 2: Cargo install
-
-```bash
-cargo install binthere
-```
-
-### Option 3: npm global install
-
-```bash
-npm i -g binthere-cli
-binthere --help
 ```
 
 ## Commands
