@@ -1,19 +1,19 @@
 # BinThere
 
-BinThere is a safety-first CLI for cleaning up installer files.
+BinThere is a CLI that finds leftover installer files and helps you remove them safely.
 
-It scans folders (usually `Downloads`) for setup files like `.exe` and `.msi`, shows reclaimable space, and only deletes files when you explicitly confirm.
+It scans folders (usually `Downloads`) for files like `.exe`, `.msi`, `.dmg`, and `.pkg`, then shows reclaimable space before any deletion.
 
 ## Install
 
-Recommended for users:
+### Users (npm)
 
 ```bash
 npm i -g binthere-cli
 binthere --help
 ```
 
-### Option 1: Build from source
+### Developers (from source)
 
 ```bash
 git clone https://github.com/iliasmahboub/binthere.git
@@ -21,7 +21,7 @@ cd binthere
 cargo build --release
 ```
 
-Run it:
+Run:
 
 ```bash
 ./target/release/binthere --help
@@ -53,22 +53,19 @@ Arguments:
 - `[PATH]` target path to scan (defaults to Downloads folder)
 
 Options:
-- `--include-archives` include archive installers (`.zip`, `.7z`)
+- `--include-archives` include `.zip` and `.7z`
 
 ### `report`
 
-Show found files and summary from the latest saved scan.
+Show files and summary from the latest scan.
 
 ```bash
 binthere report
 ```
 
-Note:
-- Run `binthere scan` first so there is saved scan data to report.
-
 ### `purge`
 
-Display or delete files found in the latest scan.
+Preview or delete files from the latest scan.
 
 ```bash
 binthere purge --dry-run
@@ -76,16 +73,22 @@ binthere purge --confirm
 ```
 
 Options:
-- `--dry-run` explicit dry-run output (safe preview)
-- `--confirm` actually delete files after interactive confirmation
+- `--dry-run` preview what would be deleted
+- `--confirm` delete after interactive confirmation
 
-Note:
-- Run `binthere scan` first so there is saved scan data to purge.
+## Typical Flow
+
+```bash
+binthere scan
+binthere report
+binthere purge --dry-run
+binthere purge --confirm
+```
 
 ## Safety
 
-- Deletion never happens unless `--confirm` is passed.
-- `--confirm` still prompts for confirmation before deleting.
+- Nothing is deleted unless `--confirm` is passed.
+- `--confirm` still asks for interactive confirmation.
 - Missing or locked files are skipped and reported.
 
 ## License
