@@ -74,7 +74,22 @@ binthere purge --confirm
 
 Options:
 - `--dry-run` preview what would be deleted
-- `--confirm` delete after interactive confirmation
+- `--confirm` open an interactive selector, then delete after confirmation
+
+When using `--confirm`, BinThere shows numbered files and asks:
+
+```text
+Delete which files? (e.g. 1,3-5 | all | none)
+```
+
+Supported input:
+- `all` delete every listed file
+- `none` keep everything and abort purge
+- `1,4,7` delete specific files
+- `2-6` delete a range
+- mixed values like `1,3-5,8`
+
+After selection, BinThere shows only selected files and asks for final confirmation.
 
 ## Typical Flow
 
@@ -88,7 +103,9 @@ binthere purge --confirm
 ## Safety
 
 - Nothing is deleted unless `--confirm` is passed.
-- `--confirm` still asks for interactive confirmation.
+- `--confirm` requires two explicit decisions:
+  - choose files by index (`all`, `none`, `1,3-5`, etc.)
+  - approve final `y/N` confirmation
 - Missing or locked files are skipped and reported.
 
 ## License
